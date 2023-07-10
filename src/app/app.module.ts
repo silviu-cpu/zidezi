@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
