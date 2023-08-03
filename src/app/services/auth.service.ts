@@ -29,7 +29,7 @@ export class AuthService {
                 })
                 .catch(error => { 
                   console.log('Auth Service: login error....');
-                  console.log('Error Code', console.error())
+                  console.log('Error Code', error.message)
                 });
   }
 }

@@ -2,10 +2,6 @@
     Login
 </button>
 
-<button mat-raised-button color="primary" routerLink="/dashboard">
-    Dashboard
-</button>
-
 <div *ngIf="(afAuth.user | async)">
     User is logged in
     <button  mat-raised-button color="primary" (click)="logout()">
