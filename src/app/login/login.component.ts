@@ -37,12 +37,10 @@ export class LoginComponent implements OnInit {
        
         if(result == null) { //null is success
           console.log('logging in....')
-          //console.log(result)
           this.router.navigate(['/dashboard']);
         }        
         else if (result.isValid === false) {
           console.log('loggin error', result);
-          //console.log(result)
           this.firebaseErrorMessage = result.message;
         }
       })
