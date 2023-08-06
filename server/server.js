@@ -15,11 +15,14 @@ app.post("/checkout", async(req,res,next) => {
     try {
         const session = await stripe.checkout.sessions.create({
             line_items: req.body.items.map((item) => ({
-                currency: "ron",
-                product_data: {
-                    name: item.name
+                price_data: {
+                    currency: 'ron',
+                    product_data: {
+                        name:'Plm'
+                    },
+                    unit_amount: 2000,
                 },
-                unit_amount: item.price * 100
+                quantity: item.quantity,
             })),
             mode: "payment",
             success_url: "http://localhost:4242/success.html",

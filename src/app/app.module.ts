@@ -17,13 +17,15 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
