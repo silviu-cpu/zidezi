@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     provideFirestore(() => getFirestore()),
     
     NoopAnimationsModule,
-
+    HttpClientModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,

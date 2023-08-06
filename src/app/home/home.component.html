@@ -9,7 +9,9 @@
     </button>
 </div>
 
-
+<button (click)="onCheckout()" mat-raised-button color="primary" class="float-right">
+    Proceed To Checkout 
+</button>
 <div *ngIf="!(afAuth.user | async)">
     User is not logged in
 </div>
