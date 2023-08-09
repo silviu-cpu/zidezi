@@ -18,6 +18,9 @@ import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
+import { MatTableModule } from '@angular/material/table'
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -39,8 +42,9 @@ import { CartComponent } from './cart/cart.component';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-
+    MatTableModule,
     FormsModule,
+    MatIconModule,
     ReactiveFormsModule
   ],
   providers: [],
