@@ -19,7 +19,17 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './cart/cart.component';
 import { MatTableModule } from '@angular/material/table'
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HeaderComponent } from './header/header.component';
+
 
 
 @NgModule({
@@ -28,7 +38,8 @@ import {MatIconModule} from '@angular/material/icon';
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    CartComponent
+    CartComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +54,14 @@ import {MatIconModule} from '@angular/material/icon';
     MatCardModule,
     MatInputModule,
     MatTableModule,
+    MatExpansionModule,
+    MatListModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatGridListModule,
+    MatToolbarModule,
+    MatBadgeModule,
+    MatSnackBarModule,
     FormsModule,
     MatIconModule,
     ReactiveFormsModule
