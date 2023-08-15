@@ -29,6 +29,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HeaderComponent } from './header/header.component';
+import { ProductBoxComponent } from './product-box/product-box.component';
+import { CartService } from './services/cart.service';
 
 
 
@@ -39,7 +41,8 @@ import { HeaderComponent } from './header/header.component';
     HomeComponent,
     DashboardComponent,
     CartComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,7 @@ import { HeaderComponent } from './header/header.component';
     MatIconModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
