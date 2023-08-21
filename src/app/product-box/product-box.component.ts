@@ -7,7 +7,7 @@ import { Product } from '../models/product.model';
   styleUrls: ['./product-box.component.scss']
 })
 export class ProductBoxComponent {
-  product: Product | undefined={
+  product: Product | undefined = {
     id: 1,
     title: 'Jaaaaaaa',
     price: 33,

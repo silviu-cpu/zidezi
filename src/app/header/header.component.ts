@@ -18,6 +18,7 @@ export class HeaderComponent {
 
   set cart(cart: Cart) {
     this._cart = cart;
+    console.log(cart.items)
     this.itemsQuantity = cart.items
                               .map(x => x.quantity)
                               .reduce((prev,curr) => prev+curr, 0)
