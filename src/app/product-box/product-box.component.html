@@ -1,17 +1,22 @@
-<mat-card class="mx-auto" *ngFor="let menuData of getMenuDataArray() | async">
-    <div class="mx-auto">
-        <div class="max-w-7xl px-8 flex-col justify-between">
-            <div>
-                <h5>{{menuData.MeniuName}}</h5>
-
-                <p>{{menuData.MeniuProduct }}</p>
-            </div>
-            <div class="flex justify-between">
-                <span class="text-red-400"> {{ menuData.MeniuPrice }} RON</span>
-                <button (click)="addItemToCart(menuData)">
-                    <mat-icon class="text-gray-500">shopping_cart</mat-icon>
-                </button>
-            </div>
+<div class="mx-auto mt-8 mb-10 w-full max-w-4xl">
+    <ng-container *ngFor="let menuData of getMenuDataArray() | async">
+      <mat-card class="mb-4 p-4 shadow-md rounded-lg custom-card">
+        <div class="flex flex-col justify-between">
+          <div>
+            <h2 class="text-lg font-semibold">{{ menuData.MeniuName }}</h2>
+            <p class="text-gray-600">{{ menuData.MeniuProduct }}</p>
+          </div>
+          <div class="flex justify-between items-center mt-2">
+            <span class="text-red-400 text-lg font-semibold">{{ menuData.MeniuPrice }} RON</span>
+            <button
+              (click)="addItemToCart(menuData)"
+              class="p-2 rounded-full bg-gray-100 hover:bg-gray-200"
+            >
+              <mat-icon class="text-gray-600">shopping_cart</mat-icon>
+            </button>
+          </div>
         </div>
-    </div>
-</mat-card>
+      </mat-card>
+    </ng-container>
+  </div>
+  

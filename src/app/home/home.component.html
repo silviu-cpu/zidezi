@@ -1,16 +1,1 @@
-<button mat-raised-button color="primary" routerLink="/login">
-    Login
-</button>
-
-<div *ngIf="(afAuth.user | async)">
-    User is logged in
-    <button  mat-raised-button color="primary" (click)="logout()">
-        Log out
-    </button>
-</div>
-
-<div *ngIf="!(afAuth.user | async)">
-    User is not logged in
-</div>
-
 <app-product-box class="w-full"></app-product-box>
