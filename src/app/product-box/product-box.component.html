@@ -1,14 +1,14 @@
-<mat-card class="mx-auto">
+<mat-card class="mx-auto" *ngFor="let menuData of getMenuDataArray() | async">
     <div class="mx-auto">
         <div class="max-w-7xl px-8 flex-col justify-between">
             <div>
-                <h5>{{MeniuName}}</h5>
-                <p class="truncate hover:whitespace-normal">{{ MeniuID}}</p>
-                <p>{{ MeniuProduct }}</p>
+                <h5>{{menuData.MeniuName}}</h5>
+
+                <p>{{menuData.MeniuProduct }}</p>
             </div>
             <div class="flex justify-between">
-                <span class="text-red-400"> {{ MeniuPrice }} RON</span>
-                <button (click)="addItemToCart()">
+                <span class="text-red-400"> {{ menuData.MeniuPrice }} RON</span>
+                <button (click)="addItemToCart(menuData)">
                     <mat-icon class="text-gray-500">shopping_cart</mat-icon>
                 </button>
             </div>

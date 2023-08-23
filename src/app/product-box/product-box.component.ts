@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../models/product.model';
 import { CartService } from '../services/cart.service';
 import { Cart, CartItem } from '../models/cart.model';
+import { SharedDataService } from '../services/shared-data.service';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-product-box',
@@ -11,10 +13,10 @@ import { Cart, CartItem } from '../models/cart.model';
 export class ProductBoxComponent {
   
   private _cart: Cart = { items: []};
-  MeniuID: any  = 1
-  MeniuName: any = 'Meniul nomber 1'
-  MeniuPrice: any = 30;
-  MeniuProduct: any = 'Ciorba de burta, Mancare de Fasole'
+  MeniuID: any
+  MeniuName: any 
+  MeniuPrice: any 
+  MeniuProduct: any
   
   @Input()
   get cart(): Cart {
@@ -25,17 +27,24 @@ export class ProductBoxComponent {
     this._cart = cart                          
   }
 
-  constructor(private cartService: CartService){}
+  constructor(private cartService: CartService,private sharedDataService: SharedDataService){}
 
+  ngOnInit(): void {
 
-  addItemToCart(): void {
-    if (this.MeniuName.trim() !== '') {
+  }
+
+  getMenuDataArray(): Observable<any[]> {
+    return this.sharedDataService.menuDataArray$;
+  }
+
+  addItemToCart(menuData: any): void {
+    if (menuData.MeniuName.trim() !== '') {
       const newItem = {
-        id: this.MeniuID,
-        name: this.MeniuName,
-        price: this.MeniuPrice,
+        id: menuData.MeniuID,
+        name: menuData.MeniuName,
+        price: menuData.MeniuPrice,
         quantity: 1,
-        product: this.MeniuProduct
+        product: menuData.MeniuProduct
       };
 
       this.cartService.addToCart(newItem);

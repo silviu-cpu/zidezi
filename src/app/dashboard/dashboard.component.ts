@@ -1,29 +1,51 @@
-import { Component } from '@angular/core';
-import { Cart } from '../models/cart.model';
-import { CartService } from '../services/cart.service';
+import { Component, OnDestroy } from '@angular/core';
+import { SharedDataService } from '../services/shared-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
-  newCartItemName: string = ''
+export class DashboardComponent implements OnDestroy {
+  selectedMenuIndex: number = 0;
+  newCartItemName: string = '';
+  newPrice: number = 0;
+  newProduct: string = '';
+  private subscription: Subscription | undefined;
 
-  constructor(private cartService: CartService) {}
+  constructor(private sharedDataService: SharedDataService) {}
 
-  addItemToCart(): void {
-    if (this.newCartItemName.trim() !== '') {
-      const newItem = {
-        id: 3,
-        name: this.newCartItemName,
-        price: 10,
-        quantity: 1,
-        product: this.newCartItemName
+  updateMenuData(): void {
+    const existingMenuDataArray = this.sharedDataService.menuDataArraySubject.getValue();
+  
+    if (
+      this.selectedMenuIndex >= 0 &&
+      this.selectedMenuIndex < existingMenuDataArray.length
+    ) {
+      const updatedMenuItem = {
+        ...existingMenuDataArray[this.selectedMenuIndex],
+        MeniuName: this.newCartItemName,
+        MeniuPrice: this.newPrice,
+        MeniuProduct: this.newProduct
       };
+  
+      const updatedMenuDataArray = [...existingMenuDataArray];
+      updatedMenuDataArray[this.selectedMenuIndex] = updatedMenuItem;
+  
+      this.sharedDataService.updateMenuDataArray(updatedMenuDataArray);
+  
+      // Clear input fields
+      this.newCartItemName = '';
+      this.newPrice = 0;
+      this.newProduct = '';
+    }
+  }
+  
 
-      this.cartService.addToCart(newItem);
-      this.newCartItemName = ''; // Clear the input field
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }
