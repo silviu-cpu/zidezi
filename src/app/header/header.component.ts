@@ -10,15 +10,14 @@ import { CartService } from '../services/cart.service';
 export class HeaderComponent {
   private _cart: Cart = { items: []};
   itemsQuantity = 0;
-
+  
   @Input()
   get cart(): Cart {
     return this._cart;
   }
 
   set cart(cart: Cart) {
-    this._cart = cart;
-    console.log(cart.items)
+    this._cart = cart
     this.itemsQuantity = cart.items
                               .map(x => x.quantity)
                               .reduce((prev,curr) => prev+curr, 0)

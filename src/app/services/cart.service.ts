@@ -23,7 +23,7 @@ export class CartService {
 
     this.cart.next({ items }) 
     this._snackBar.open('1 item added to cart.' , 'Ok', { duration: 3000})
-
+    console.log(items)
   }
 
   getTotal(items: Array<CartItem>): number {
@@ -69,5 +69,10 @@ export class CartService {
 
     this.cart.next({ items: filteredItems })
     this._snackBar.open('1item removed from cart.' , 'Ok', { duration: 3000})
+  }
+
+  updateCart(updatedCart: Cart): void {
+    this.cart.next(updatedCart);
+    this._snackBar.open('Cart updated.', 'Ok', { duration: 3000 });
   }
 }

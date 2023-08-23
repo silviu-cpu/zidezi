@@ -2,3 +2,6 @@
 <button mat-raised-button color="primary" routerLink="/home">
     Home
 </button>
+
+<input type="text" [(ngModel)]="newCartItemName" placeholder="Enter item name" />
+<button (click)="addItemToCart()">Add Item to Cart</button>

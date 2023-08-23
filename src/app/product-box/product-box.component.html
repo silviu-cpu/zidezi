@@ -2,13 +2,13 @@
     <div class="mx-auto">
         <div class="max-w-7xl px-8 flex-col justify-between">
             <div>
-                <h5>Meniul 1</h5>
-                <p class="truncate hover:whitespace-normal">30 lei</p>
-                <p>Ciorba de burta, Mancare de Fasole</p>
+                <h5>{{MeniuName}}</h5>
+                <p class="truncate hover:whitespace-normal">{{ MeniuID}}</p>
+                <p>{{ MeniuProduct }}</p>
             </div>
             <div class="flex justify-between">
-                <span class="text-red-400"> {{ 150 | currency }}</span>
-                <button (click)="onAddToCart()">
+                <span class="text-red-400"> {{ MeniuPrice }} RON</span>
+                <button (click)="addItemToCart()">
                     <mat-icon class="text-gray-500">shopping_cart</mat-icon>
                 </button>
             </div>
