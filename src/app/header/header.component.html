@@ -1,4 +1,4 @@
-<mat-toolbar class="mx-auto border-x justify-between">
+<mat-toolbar class="full-width-toolbar justify-between " [ngStyle]="{'background-color': '#f3f4f6'}">
     <a routerLink="/home">Zi de Zi</a>
     <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity" matBadgeColor="warn">shopping_cart</mat-icon>

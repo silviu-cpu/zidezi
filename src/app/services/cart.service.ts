@@ -22,7 +22,7 @@ export class CartService {
     }
 
     this.cart.next({ items }) 
-    this._snackBar.open('1 item added to cart.' , 'Ok', { duration: 3000})
+    this._snackBar.open('1 item added to cart.' , 'Ok', { duration: 2000})
     console.log(items)
   }
 
@@ -34,7 +34,7 @@ export class CartService {
 
   clearCart(): void {
     this.cart.next({ items: [] })
-    this._snackBar.open('Cart is cleared.' , 'Ok', { duration: 3000})
+    this._snackBar.open('Cart is cleared.' , 'Ok', { duration: 2000})
   }
 
   removeFromCart(item: CartItem, flag: boolean = true): Array<CartItem> {
@@ -42,7 +42,7 @@ export class CartService {
 
     if(flag) {
       this.cart.next({items: filteredItems})
-      this._snackBar.open('1 item removed from Cart.' , 'Ok', { duration: 3000})
+      this._snackBar.open('1 item removed from Cart.' , 'Ok', { duration: 2000})
     }
 
     return filteredItems
@@ -68,11 +68,11 @@ export class CartService {
     }
 
     this.cart.next({ items: filteredItems })
-    this._snackBar.open('1item removed from cart.' , 'Ok', { duration: 3000})
+    this._snackBar.open('1item removed from cart.' , 'Ok', { duration: 2000})
   }
 
   updateCart(updatedCart: Cart): void {
     this.cart.next(updatedCart);
-    this._snackBar.open('Cart updated.', 'Ok', { duration: 3000 });
+    this._snackBar.open('Cart updated.', 'Ok', { duration: 2000 });
   }
 }
