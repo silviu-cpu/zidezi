@@ -4,6 +4,11 @@
     padding: 8px;
 }
 
+@media screen and (max-width: 730px) {
+    .quantity-cell {
+        padding: 18px;
+    }
+}
 .quantity-display {
     font-size: 1.2rem;
     margin: 0 12px;
@@ -15,4 +20,8 @@ button[mat-mini-fab] {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.table-container {
+    overflow-x: auto;
 }
