@@ -24,6 +24,54 @@ app.post("/checkout", async(req,res,next) => {
                 },
                 quantity: item.quantity,
             })),
+            payment_method_types: ['card'],
+        shipping_address_collection: {
+        allowed_countries: ['RO'],
+        },
+            shipping_options: [
+            {
+                shipping_rate_data: {
+                type: 'fixed_amount',
+                fixed_amount: {
+                    amount: 0,
+                    currency: 'ron',
+                },
+                display_name: 'Your food will be ordered under',
+                // Delivers between 5-7 business days
+                delivery_estimate: {
+                    minimum: {
+                    unit: 'hour',
+                    value: 1,
+                    },
+                    maximum: {
+                    unit: 'hour',
+                    value: 2,
+                    },
+                }
+                }
+            },
+            {
+                shipping_rate_data: {
+                type: 'fixed_amount',
+                fixed_amount: {
+                    amount: 1500,
+                    currency: 'ron',
+                },
+                display_name: 'Your food will be ordered under',
+                // Delivers in exactly 1 business day
+                delivery_estimate: {
+                    minimum: {
+                    unit: 'hour',
+                    value: 1,
+                    },
+                    maximum: {
+                    unit: 'hour',
+                    value: 2,
+                    },
+                }
+                }
+            },
+            ],
             mode: "payment",
             success_url: "http://localhost:4242/success.html",
             cancel_url: "http://localhost:4242/cancel.html"

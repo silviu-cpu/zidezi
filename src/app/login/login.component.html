@@ -1,8 +1,5 @@
-<button mat-raised-button color="primary" routerLink="/home">
-    Home
-</button>
 
-<mat-card>
+<mat-card class="flex justify-center items-center mt-8">
     <form [formGroup]='loginForm' (ngSubmit)="loginUser()" type="">
         <p>
             <mat-form-field appearance="outline">
@@ -20,6 +17,14 @@
             <span>{{ firebaseErrorMessage }}</span>
         </div>
 
-        <button mat-raised-button color="primary">Login</button>
+        <div class="flex justify-between mb-8">
+            <button mat-raised-button color="primary">
+                Login
+            </button>
+            <button mat-raised-button color="primary" routerLink="/home">
+                Home
+            </button>
+        </div>
+        
     </form>
 </mat-card>
