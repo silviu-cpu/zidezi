@@ -23,7 +23,6 @@ export class CartService {
 
     this.cart.next({ items }) 
     this._snackBar.open('1 item added to cart.' , 'Ok', { duration: 2000})
-    console.log(items)
   }
 
   getTotal(items: Array<CartItem>): number {
