@@ -49,28 +49,7 @@ app.post("/checkout", async(req,res,next) => {
                     },
                 }
                 }
-            },
-            {
-                shipping_rate_data: {
-                type: 'fixed_amount',
-                fixed_amount: {
-                    amount: 1500,
-                    currency: 'ron',
-                },
-                display_name: 'Your food will be ordered under',
-                // Delivers in exactly 1 business day
-                delivery_estimate: {
-                    minimum: {
-                    unit: 'hour',
-                    value: 1,
-                    },
-                    maximum: {
-                    unit: 'hour',
-                    value: 2,
-                    },
-                }
-                }
-            },
+            }
             ],
             mode: "payment",
             success_url: "http://localhost:4242/success.html",
