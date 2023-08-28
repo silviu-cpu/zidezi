@@ -1,6 +1,6 @@
 {
   "api": {
-    "stripe": {
+    "checkout": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "stripe"
+          "resourceName": "checkoutfc"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -16,26 +16,26 @@
     }
   },
   "function": {
-    "stripe": {
+    "checkoutfc": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_stripe_deploymentBucketName": {
+    "AMPLIFY_function_checkoutfc_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "stripe"
+          "resourceName": "checkoutfc"
         }
       ]
     },
-    "AMPLIFY_function_stripe_s3Key": {
+    "AMPLIFY_function_checkoutfc_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "stripe"
+          "resourceName": "checkoutfc"
         }
       ]
     }

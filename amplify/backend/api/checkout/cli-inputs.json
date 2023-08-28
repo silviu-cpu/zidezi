@@ -3,7 +3,7 @@
   "paths": {
     "/checkout": {
       "name": "/checkout",
-      "lambdaFunction": "stripe",
+      "lambdaFunction": "checkoutfc",
       "permissions": {
         "setting": "open"
       }

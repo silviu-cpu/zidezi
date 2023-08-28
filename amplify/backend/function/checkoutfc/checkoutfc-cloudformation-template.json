@@ -15,14 +15,6 @@
     },
     "s3Key": {
       "Type": "String"
-    },
-    "apistripeApiName": {
-      "Type": "String",
-      "Default": "apistripeApiName"
-    },
-    "apistripeApiId": {
-      "Type": "String",
-      "Default": "apistripeApiId"
     }
   },
   "Conditions": {
@@ -55,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "stripe",
+            "checkoutfc",
             {
               "Fn::Join": [
                 "",
                 [
-                  "stripe",
+                  "checkoutfc",
                   "-",
                   {
                     "Ref": "env"
@@ -77,12 +69,6 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
-            },
-            "API_STRIPE_APINAME": {
-              "Ref": "apistripeApiName"
-            },
-            "API_STRIPE_APIID": {
-              "Ref": "apistripeApiId"
             }
           }
         },
@@ -103,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "zideziLambdaRole8d638062",
+            "zideziLambdaRolea855711f",
             {
               "Fn::Join": [
                 "",
                 [
-                  "zideziLambdaRole8d638062",
+                  "zideziLambdaRolea855711f",
                   "-",
                   {
                     "Ref": "env"
@@ -174,55 +160,6 @@
                   }
                 ]
               }
-            }
-          ]
-        }
-      }
-    },
-    "AmplifyResourcesPolicy": {
-      "DependsOn": [
-        "LambdaExecutionRole"
-      ],
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyName": "amplify-lambda-execution-policy",
-        "Roles": [
-          {
-            "Ref": "LambdaExecutionRole"
-          }
-        ],
-        "PolicyDocument": {
-          "Version": "2012-10-17",
-          "Statement": [
-            {
-              "Effect": "Allow",
-              "Action": [
-                "apigateway:POST",
-                "apigateway:PUT",
-                "apigateway:GET",
-                "apigateway:HEAD",
-                "apigateway:OPTIONS",
-                "apigateway:PATCH",
-                "apigateway:DELETE"
-              ],
-              "Resource": [
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:aws:apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      "::/restapis/",
-                      {
-                        "Ref": "apistripeApiName"
-                      },
-                      "/*"
-                    ]
-                  ]
-                }
-              ]
             }
           ]
         }
