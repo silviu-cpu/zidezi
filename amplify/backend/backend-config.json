@@ -1,0 +1,43 @@
+{
+  "api": {
+    "stripe": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "stripe"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "stripe": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_stripe_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "stripe"
+        }
+      ]
+    },
+    "AMPLIFY_function_stripe_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "stripe"
+        }
+      ]
+    }
+  }
+}

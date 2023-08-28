@@ -39,7 +39,7 @@ export class CartComponent implements OnInit{
 
   onCheckout():void {
     //call stripe service
-    this.http.post('http://localhost:4242/checkout', {
+    this.http.post('http://zidezi.net/checkout', {
       items: this.cart.items
     }).subscribe(async (res: any) => {
       let stripe = await loadStripe('pk_test_51Nc6sEArMML4vzqfC2eBG4jCVWOpjs2Gub9QUV6XEM90DmLnAgZU8WCrdt6TPHrrYzBfzjnpDbeJsZ4lnItweppt003Cck5UN6');
