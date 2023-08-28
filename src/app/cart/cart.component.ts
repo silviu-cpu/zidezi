@@ -3,6 +3,7 @@ import { Cart, CartItem } from '../models/cart.model';
 import { loadStripe } from '@stripe/stripe-js';
 import { HttpClient } from '@angular/common/http'
 import { CartService } from '../services/cart.service';
+import { API } from '@aws-amplify/api';
 
 @Component({
   selector: 'app-cart',
@@ -37,18 +38,42 @@ export class CartComponent implements OnInit{
     this.cartService.clearCart();
   }
 
-  onCheckout():void {
-    //call stripe service
-    this.http.post('https://1cithsqszj.execute-api.eu-north-1.amazonaws.com/staging/checkout', {
-      items: this.cart.items
-    }).subscribe(async (res: any) => {
-      let stripe = await loadStripe('pk_test_51Nc6sEArMML4vzqfC2eBG4jCVWOpjs2Gub9QUV6XEM90DmLnAgZU8WCrdt6TPHrrYzBfzjnpDbeJsZ4lnItweppt003Cck5UN6');
-      console.log("aici")
-      stripe?.redirectToCheckout({
-        sessionId: res.id
-      })
-    })
+  // onCheckout():void {
+  //   //call stripe service
+  //   this.http.post('https://1cithsqszj.execute-api.eu-north-1.amazonaws.com/staging.checkoutfc-staging', {
+  //     items: this.cart.items
+  //   }).subscribe(async (res: any) => {
+  //     let stripe = await loadStripe('pk_test_51Nc6sEArMML4vzqfC2eBG4jCVWOpjs2Gub9QUV6XEM90DmLnAgZU8WCrdt6TPHrrYzBfzjnpDbeJsZ4lnItweppt003Cck5UN6');
+  //     stripe?.redirectToCheckout({
+  //       sessionId: res.id
+  //     })
+  //   })
+  // }
+
+async onCheckout() {
+  try {
+    // Call your API using Amplify
+    const response = await API.post('checkout', '/checkout', {
+      body: {
+        items: this.cart.items
+      }
+    });
+
+    const stripe = await loadStripe('pk_test_51Nc6sEArMML4vzqfC2eBG4jCVWOpjs2Gub9QUV6XEM90DmLnAgZU8WCrdt6TPHrrYzBfzjnpDbeJsZ4lnItweppt003Cck5UN6');
+    const { id } = response; // Assuming the API response has an 'id' field
+    console.log("this is the response---")
+    console.log(response)
+
+    if (stripe) {
+      await stripe.redirectToCheckout({
+        sessionId: id
+      });
+    }
+  } catch (error) {
+    console.error('Error during checkout:', error);
   }
+}
+
 
   onRemoveCart(item: CartItem): void {
     this.cartService.removeFromCart(item)
