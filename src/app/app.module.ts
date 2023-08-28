@@ -32,7 +32,7 @@ import { HeaderComponent } from './header/header.component';
 import { ProductBoxComponent } from './product-box/product-box.component';
 import { CartService } from './services/cart.service';
 
-
+import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { CartService } from './services/cart.service';
     AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    
+    AmplifyAuthenticatorModule,
     NoopAnimationsModule,
     HttpClientModule,
     MatButtonModule,
