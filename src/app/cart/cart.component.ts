@@ -38,17 +38,6 @@ export class CartComponent implements OnInit{
     this.cartService.clearCart();
   }
 
-  // onCheckout():void {
-  //   //call stripe service
-  //   this.http.post('https://1cithsqszj.execute-api.eu-north-1.amazonaws.com/staging.checkoutfc-staging', {
-  //     items: this.cart.items
-  //   }).subscribe(async (res: any) => {
-  //     let stripe = await loadStripe('pk_test_51Nc6sEArMML4vzqfC2eBG4jCVWOpjs2Gub9QUV6XEM90DmLnAgZU8WCrdt6TPHrrYzBfzjnpDbeJsZ4lnItweppt003Cck5UN6');
-  //     stripe?.redirectToCheckout({
-  //       sessionId: res.id
-  //     })
-  //   })
-  // }
 
 async onCheckout() {
   try {
