@@ -6,7 +6,7 @@ const awsmobile = {
     "aws_cloud_logic_custom": [
         {
             "name": "checkout",
-            "endpoint": "https://1cithsqszj.execute-api.eu-north-1.amazonaws.com/staging",
+            "endpoint": "https://bmkra1jcf6.execute-api.eu-north-1.amazonaws.com/staging",
             "region": "eu-north-1"
         }
     ]
