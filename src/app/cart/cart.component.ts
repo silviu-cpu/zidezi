@@ -49,13 +49,13 @@ async onCheckout() {
     });
 
     const stripe = await loadStripe('pk_test_51Nc6sEArMML4vzqfC2eBG4jCVWOpjs2Gub9QUV6XEM90DmLnAgZU8WCrdt6TPHrrYzBfzjnpDbeJsZ4lnItweppt003Cck5UN6');
-    const { id } = response; // Assuming the API response has an 'id' field
+    const { sessionId } = response; // Assuming the API response has an 'id' field
     console.log("this is the response---")
-    console.log(id)
+    console.log(sessionId)
 
     if (stripe) {
       await stripe.redirectToCheckout({
-        sessionId: id
+        sessionId: sessionId
       });
     }
   } catch (error) {
