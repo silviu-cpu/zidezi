@@ -4,6 +4,7 @@ import { CartService } from '../services/cart.service';
 import { Cart, CartItem } from '../models/cart.model';
 import { SharedDataService } from '../services/shared-data.service';
 import { Observable } from 'rxjs/internal/Observable';
+import { APIService } from '../API.service';
 
 @Component({
   selector: 'app-product-box',
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs/internal/Observable';
   styleUrls: ['./product-box.component.scss']
 })
 export class ProductBoxComponent {
-  
+  allProducts: any = [];
   private _cart: Cart = { items: []};
   MeniuID: any
   MeniuName: any 
@@ -27,10 +28,12 @@ export class ProductBoxComponent {
     this._cart = cart                          
   }
 
-  constructor(private cartService: CartService,private sharedDataService: SharedDataService){}
+  constructor(private cartService: CartService,private sharedDataService: SharedDataService, private api: APIService){}
 
-  ngOnInit(): void {
-
+  async ngOnInit() {
+    this.createProduct();
+    const result = await this.api.ListProducts();
+    this.allProducts = result.items;
   }
 
   getMenuDataArray(): Observable<any[]> {
@@ -50,4 +53,20 @@ export class ProductBoxComponent {
       this.cartService.addToCart(newItem);
     }
   }
+
+  async createProduct() {
+    const newProduct = {
+      name: "Primul meniu creat GraphQL",
+      description: "Descriere din GraphQL",
+      price: 69
+    }
+
+    let result = await this.api.CreateProducts(newProduct)
+    this.allProducts.push(result);
+  }
+
+  // async listProduct(){
+  //   const result = await this.api.ListProducts();
+  //   this.allProducts = result.items;
+  // }
 }

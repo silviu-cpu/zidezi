@@ -18,5 +18,16 @@
         </div>
       </mat-card>
     </ng-container>
+</div>
+
+<div class="mx-auto mt-8 mb-10 w-full max-w-4xl">
+  Products
+  <div *ngFor ="let product of allProducts">
+    <hr>
+    <p> Name: {{todo.name}}</p>
+    <p> Descr: {{todo.descr}} </p>
+    <p> Price: {{todo.price}} </p>
   </div>
+
+</div>
   
