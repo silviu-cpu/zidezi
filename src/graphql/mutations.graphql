@@ -1,0 +1,46 @@
+# this is an auto generated file. This will be overwritten
+
+mutation CreateProducts(
+  $input: CreateProductsInput!
+  $condition: ModelProductsConditionInput
+) {
+  createProducts(input: $input, condition: $condition) {
+    id
+    name
+    description
+    price
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation UpdateProducts(
+  $input: UpdateProductsInput!
+  $condition: ModelProductsConditionInput
+) {
+  updateProducts(input: $input, condition: $condition) {
+    id
+    name
+    description
+    price
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+
+mutation DeleteProducts(
+  $input: DeleteProductsInput!
+  $condition: ModelProductsConditionInput
+) {
+  deleteProducts(input: $input, condition: $condition) {
+    id
+    name
+    description
+    price
+    createdAt
+    updatedAt
+    __typename
+  }
+}
