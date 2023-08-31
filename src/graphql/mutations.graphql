@@ -9,6 +9,7 @@ mutation CreateProducts(
     name
     description
     price
+    quantity
     createdAt
     updatedAt
     __typename
@@ -24,6 +25,7 @@ mutation UpdateProducts(
     name
     description
     price
+    quantity
     createdAt
     updatedAt
     __typename
@@ -39,6 +41,7 @@ mutation DeleteProducts(
     name
     description
     price
+    quantity
     createdAt
     updatedAt
     __typename

@@ -20,12 +20,14 @@ export type CreateProductsInput = {
   name: string;
   description?: string | null;
   price?: number | null;
+  quantity?: number | null;
 };
 
 export type ModelProductsConditionInput = {
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
   price?: ModelIntInput | null;
+  quantity?: ModelIntInput | null;
   and?: Array<ModelProductsConditionInput | null> | null;
   or?: Array<ModelProductsConditionInput | null> | null;
   not?: ModelProductsConditionInput | null;
@@ -88,6 +90,7 @@ export type Products = {
   name: string;
   description?: string | null;
   price?: number | null;
+  quantity?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -97,6 +100,7 @@ export type UpdateProductsInput = {
   name?: string | null;
   description?: string | null;
   price?: number | null;
+  quantity?: number | null;
 };
 
 export type DeleteProductsInput = {
@@ -108,6 +112,7 @@ export type ModelProductsFilterInput = {
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
   price?: ModelIntInput | null;
+  quantity?: ModelIntInput | null;
   and?: Array<ModelProductsFilterInput | null> | null;
   or?: Array<ModelProductsFilterInput | null> | null;
   not?: ModelProductsFilterInput | null;
@@ -140,6 +145,7 @@ export type ModelSubscriptionProductsFilterInput = {
   name?: ModelSubscriptionStringInput | null;
   description?: ModelSubscriptionStringInput | null;
   price?: ModelSubscriptionIntInput | null;
+  quantity?: ModelSubscriptionIntInput | null;
   and?: Array<ModelSubscriptionProductsFilterInput | null> | null;
   or?: Array<ModelSubscriptionProductsFilterInput | null> | null;
 };
@@ -192,6 +198,7 @@ export type CreateProductsMutation = {
   name: string;
   description?: string | null;
   price?: number | null;
+  quantity?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -202,6 +209,7 @@ export type UpdateProductsMutation = {
   name: string;
   description?: string | null;
   price?: number | null;
+  quantity?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -212,6 +220,7 @@ export type DeleteProductsMutation = {
   name: string;
   description?: string | null;
   price?: number | null;
+  quantity?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -222,6 +231,7 @@ export type GetProductsQuery = {
   name: string;
   description?: string | null;
   price?: number | null;
+  quantity?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -234,6 +244,7 @@ export type ListProductsQuery = {
     name: string;
     description?: string | null;
     price?: number | null;
+    quantity?: number | null;
     createdAt: string;
     updatedAt: string;
   } | null>;
@@ -246,6 +257,7 @@ export type OnCreateProductsSubscription = {
   name: string;
   description?: string | null;
   price?: number | null;
+  quantity?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -256,6 +268,7 @@ export type OnUpdateProductsSubscription = {
   name: string;
   description?: string | null;
   price?: number | null;
+  quantity?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -266,6 +279,7 @@ export type OnDeleteProductsSubscription = {
   name: string;
   description?: string | null;
   price?: number | null;
+  quantity?: number | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -285,6 +299,7 @@ export class APIService {
           name
           description
           price
+          quantity
           createdAt
           updatedAt
         }
@@ -311,6 +326,7 @@ export class APIService {
           name
           description
           price
+          quantity
           createdAt
           updatedAt
         }
@@ -337,6 +353,7 @@ export class APIService {
           name
           description
           price
+          quantity
           createdAt
           updatedAt
         }
@@ -360,6 +377,7 @@ export class APIService {
           name
           description
           price
+          quantity
           createdAt
           updatedAt
         }
@@ -386,6 +404,7 @@ export class APIService {
             name
             description
             price
+            quantity
             createdAt
             updatedAt
           }
@@ -419,6 +438,7 @@ export class APIService {
           name
           description
           price
+          quantity
           createdAt
           updatedAt
         }
@@ -446,6 +466,7 @@ export class APIService {
           name
           description
           price
+          quantity
           createdAt
           updatedAt
         }
@@ -473,6 +494,7 @@ export class APIService {
           name
           description
           price
+          quantity
           createdAt
           updatedAt
         }

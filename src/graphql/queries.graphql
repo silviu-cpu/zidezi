@@ -6,6 +6,7 @@ query GetProducts($id: ID!) {
     name
     description
     price
+    quantity
     createdAt
     updatedAt
     __typename
@@ -23,6 +24,7 @@ query ListProducts(
       name
       description
       price
+      quantity
       createdAt
       updatedAt
       __typename
