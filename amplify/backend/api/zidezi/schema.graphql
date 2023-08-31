@@ -7,4 +7,5 @@ type Products @model {
   name: String!
   description: String
   price: Int
+  quantity: Int
 }
