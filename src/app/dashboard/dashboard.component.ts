@@ -23,6 +23,10 @@ export class DashboardComponent implements OnDestroy {
 
     let result = await this.api.CreateProducts(newProduct)
     this.allProducts.push(result);
+    
+    this.newCartItemName = '';
+    this.newPrice = 0;
+    this.newDescription = '';
   }
 
 
