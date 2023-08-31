@@ -26,7 +26,7 @@ export class ProductBoxComponent {
   constructor(private cartService: CartService, private api: APIService){}
 
   async ngOnInit() {
-    this.createProduct();
+    //this.createProduct();
     const result = await this.api.ListProducts();
     this.allProducts = result.items;
   }
