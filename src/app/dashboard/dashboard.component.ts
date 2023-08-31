@@ -1,5 +1,4 @@
 import { Component, OnDestroy } from '@angular/core';
-import { SharedDataService } from '../services/shared-data.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -14,38 +13,10 @@ export class DashboardComponent implements OnDestroy {
   newProduct: string = '';
   private subscription: Subscription | undefined;
 
-  constructor(private sharedDataService: SharedDataService) {}
+  constructor() {}
 
-  updateMenuData(): void {
-    const existingMenuDataArray = this.sharedDataService.menuDataArraySubject.getValue();
-  
-    if (
-      this.selectedMenuIndex >= 0 &&
-      this.selectedMenuIndex < existingMenuDataArray.length
-    ) {
-      const updatedMenuItem = {
-        ...existingMenuDataArray[this.selectedMenuIndex],
-        MeniuName: this.newCartItemName,
-        MeniuPrice: this.newPrice,
-        MeniuProduct: this.newProduct
-      };
-  
-      const updatedMenuDataArray = [...existingMenuDataArray];
-      updatedMenuDataArray[this.selectedMenuIndex] = updatedMenuItem;
-  
-      this.sharedDataService.updateMenuDataArray(updatedMenuDataArray);
-  
-      // Clear input fields
-      this.newCartItemName = '';
-      this.newPrice = 0;
-      this.newProduct = '';
-    }
-  }
   
 
   ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
   }
 }
