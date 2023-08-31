@@ -1,11 +1,14 @@
 
-<button mat-raised-button color="primary" routerLink="/home">
-    Home
-</button>
+<div class="flex">
+    <button mat-raised-button color="primary" routerLink="/home">
+        Home
+    </button>
+    
+    <input type="text" [(ngModel)]="newCartItemName" placeholder="Enter item name" />
+    <input type="text" [(ngModel)]="newPrice" placeholder="Enter price" />
+    <input type="text" [(ngModel)]="newProduct" placeholder="Enter desc" />
+    <input type="number" [(ngModel)]="selectedMenuIndex" placeholder="Enter index" />
+    
+    <button>Add Item to Cart</button>
+</div>
 
-<input type="text" [(ngModel)]="newCartItemName" placeholder="Enter item name" />
-<input type="text" [(ngModel)]="newPrice" placeholder="Enter price" />
-<input type="text" [(ngModel)]="newProduct" placeholder="Enter desc" />
-<input type="number" [(ngModel)]="selectedMenuIndex" placeholder="Enter index" />
-
-<button (click)="updateMenuData()">Add Item to Cart</button>
