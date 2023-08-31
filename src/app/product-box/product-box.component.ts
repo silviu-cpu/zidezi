@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '../models/product.model';
 import { CartService } from '../services/cart.service';
 import { Cart, CartItem } from '../models/cart.model';
-import { SharedDataService } from '../services/shared-data.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { APIService } from '../API.service';
 
@@ -14,11 +13,7 @@ import { APIService } from '../API.service';
 export class ProductBoxComponent {
   allProducts: any = [];
   private _cart: Cart = { items: []};
-  MeniuID: any
-  MeniuName: any 
-  MeniuPrice: any 
-  MeniuProduct: any
-  
+
   @Input()
   get cart(): Cart {
     return this._cart;
@@ -28,7 +23,7 @@ export class ProductBoxComponent {
     this._cart = cart                          
   }
 
-  constructor(private cartService: CartService,private sharedDataService: SharedDataService, private api: APIService){}
+  constructor(private cartService: CartService, private api: APIService){}
 
   async ngOnInit() {
     this.createProduct();
@@ -36,22 +31,10 @@ export class ProductBoxComponent {
     this.allProducts = result.items;
   }
 
-  getMenuDataArray(): Observable<any[]> {
-    return this.sharedDataService.menuDataArray$;
-  }
+  addItemToCart(product: any) {
 
-  addItemToCart(menuData: any): void {
-    if (menuData.MeniuName.trim() !== '') {
-      const newItem = {
-        id: menuData.MeniuID,
-        name: menuData.MeniuName,
-        price: menuData.MeniuPrice,
-        quantity: 1,
-        product: menuData.MeniuProduct
-      };
-
-      this.cartService.addToCart(newItem);
-    }
+    this.cartService.addToCart(product);
+    
   }
 
   async createProduct() {
