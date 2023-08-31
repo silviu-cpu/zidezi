@@ -31,7 +31,7 @@ export class ProductBoxComponent {
   }
 
   addItemToCart(product: any) {
-
+    console.log(product)
     this.cartService.addToCart(product);
     
   }
