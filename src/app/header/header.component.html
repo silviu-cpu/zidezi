@@ -2,7 +2,7 @@
     <a routerLink="/home">Zi de Zi</a>
     <button mat-raised-button color="primary" routerLink="/login">Login</button>
     <button mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity" matBadgeColor="#6D43BA">shopping_cart</mat-icon>
+        <mat-icon class="custom-badge" [matBadge]="itemsQuantity" [matBadgeHidden]="!itemsQuantity">shopping_cart</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
         <div class="p-3 divide-y divide-solid">
