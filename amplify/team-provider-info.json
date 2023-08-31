@@ -15,7 +15,7 @@
       "function": {
         "checkoutfc": {
           "deploymentBucketName": "amplify-zidezi-staging-123746-deployment",
-          "s3Key": "amplify-builds/checkoutfc-73386e77514f4776484b-build.zip"
+          "s3Key": "amplify-builds/checkoutfc-5158654a526c594f4354-build.zip"
         }
       },
       "api": {
