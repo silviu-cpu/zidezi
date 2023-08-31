@@ -6,9 +6,8 @@
     
     <input type="text" [(ngModel)]="newCartItemName" placeholder="Enter item name" />
     <input type="text" [(ngModel)]="newPrice" placeholder="Enter price" />
-    <input type="text" [(ngModel)]="newProduct" placeholder="Enter desc" />
-    <input type="number" [(ngModel)]="selectedMenuIndex" placeholder="Enter index" />
+    <input type="text" [(ngModel)]="newDescription" placeholder="Enter description" />
     
-    <button>Add Item to Cart</button>
+    <button mat-raised-button color="primary" (click)="createProduct()">Add Item to Cart</button>
 </div>
 

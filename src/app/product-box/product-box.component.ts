@@ -26,7 +26,6 @@ export class ProductBoxComponent {
   constructor(private cartService: CartService, private api: APIService){}
 
   async ngOnInit() {
-    //this.createProduct();
     const result = await this.api.ListProducts();
     this.allProducts = result.items;
   }
@@ -37,19 +36,4 @@ export class ProductBoxComponent {
     
   }
 
-  async createProduct() {
-    const newProduct = {
-      name: "Primul meniu creat GraphQL",
-      description: "Descriere din GraphQL",
-      price: 69
-    }
-
-    let result = await this.api.CreateProducts(newProduct)
-    this.allProducts.push(result);
-  }
-
-  // async listProduct(){
-  //   const result = await this.api.ListProducts();
-  //   this.allProducts = result.items;
-  // }
 }
