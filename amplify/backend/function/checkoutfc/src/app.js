@@ -68,8 +68,8 @@ app.post("/checkout", async(req,res,next) => {
           }
           ],
           mode: "payment",
-          success_url: "https://zidezi.net/success.html",
-          cancel_url: "https://zidezi.net/cancel.html"
+          success_url: "https://zidezi.net",
+          cancel_url: "https://zidezi.net"
       });
 
       res.json({ sessionId: session.id });
