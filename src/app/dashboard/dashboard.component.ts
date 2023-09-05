@@ -33,9 +33,15 @@ export class DashboardComponent implements OnDestroy {
   async deleteAllProducts() {
     let result = await this.api.ListProducts();
     this.listProducts.push(result)
-    for(let a of this.listProducts)
+    console.log("This is listProduccts")
+    console.log(this.listProducts)
+
+    for(let a of this.listProducts){
+      console.log("this is a")
+      console.log(a)
+    }
     //await this.api.DeleteProducts();
-  console.log(a)
+  
   }
 
 
