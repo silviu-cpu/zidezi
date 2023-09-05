@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { APIService } from '../API.service';
+import { APIService, Products } from '../API.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,8 +10,8 @@ export class DashboardComponent implements OnDestroy {
   newCartItemName: string = '';
   newPrice: number = 0;
   newDescription: string = '';
-  allProducts: any = [];
-  listProducts:  any = [];
+  allProducts: Array<Products> = [];
+  listProducts: Array<Products> = [];
   constructor(private api: APIService) {}
 
   async createProduct() {
