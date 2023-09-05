@@ -11,7 +11,7 @@ export class DashboardComponent implements OnDestroy {
   newPrice: number = 0;
   newDescription: string = '';
   allProducts: any = [];
-
+  listProducts:  any = [];
   constructor(private api: APIService) {}
 
   async createProduct() {
@@ -31,7 +31,9 @@ export class DashboardComponent implements OnDestroy {
   }
 
   async deleteAllProducts(){
-    for(let a of this.allProducts)
+    let result = await this.api.ListProducts();
+    this.listProducts.push(result)
+    for(let a of this.listProducts)
     //await this.api.DeleteProducts();
   console.log(a)
   }
