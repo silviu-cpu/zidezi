@@ -30,19 +30,31 @@ export class DashboardComponent implements OnDestroy {
     this.newDescription = '';
   }
 
-  async deleteAllProducts() {
-    let result = await this.api.ListProducts();
-    this.listProducts.push(result)
-    console.log("This is listProduccts")
-    console.log(this.listProducts)
-
-    for(let a of this.listProducts[0].items){
-      await this.api.DeleteProducts(a.id);
-      console.log('id', a.id)
-    }
-    //await this.api.DeleteProducts();
+  async  deleteAllProducts() {
   
+    const productList = await this.api.ListProducts();
+  
+    
+    if (productList?.items?.length) {
+      const productIds = productList.items.map((product) => product?.id);
+  
+     
+      for (const productId of productIds) {
+        try {
+          if (productId) {
+            const deleteInput = { id: productId };
+            await this.api.DeleteProducts(deleteInput);
+            console.log(`Deleted product with ID: ${productId}`);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    } else {
+      console.log("No products to delete.");
+    }
   }
+  
 
 
   ngOnDestroy(): void {
