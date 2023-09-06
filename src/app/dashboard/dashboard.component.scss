@@ -1,5 +1,5 @@
-@media screen and (max-width: 600px) {
-    button.mat-raised-button {
+@media only screen and (max-width: 600px) {
+    button {
       font-size: 14px;
     }
 }
