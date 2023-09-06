@@ -37,8 +37,7 @@ export class DashboardComponent implements OnDestroy {
     console.log(this.listProducts)
 
     for(let a of this.listProducts[0].items){
-      console.log("this is a")
-      console.log(a)
+      await this.api.DeleteProducts(a);
     }
     //await this.api.DeleteProducts();
   
