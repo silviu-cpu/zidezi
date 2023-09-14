@@ -30,7 +30,7 @@ export class DashboardComponent implements OnDestroy {
     this.newDescription = '';
   }
 
-  async  deleteAllProducts() {
+  async deleteAllProducts() {
   
     const productList = await this.api.ListProducts();
   
