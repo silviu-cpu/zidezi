@@ -28,7 +28,6 @@ export class ProductBoxComponent {
   async ngOnInit() {
     const result = await this.api.ListProducts();
     this.allProducts = result.items;
-    
   }
 
   addItemToCart(product: any) {
