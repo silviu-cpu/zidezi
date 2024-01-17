@@ -10,6 +10,7 @@ import { APIService } from '../API.service';
   templateUrl: './product-box.component.html',
   styleUrls: ['./product-box.component.scss']
 })
+
 export class ProductBoxComponent {
   allProducts: any = [];
   private _cart: Cart = { items: []};
